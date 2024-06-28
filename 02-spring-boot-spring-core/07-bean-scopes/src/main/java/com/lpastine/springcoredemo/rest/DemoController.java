@@ -28,7 +28,7 @@ public class DemoController {
 
     // Since the default scope is Singleton, both Constructor Injections
     // reference to the same bean.
-    // This returns true
+    // This returns true if default or false if set to prototype
     @GetMapping("/check")
     public String check() {
         return "Comparing beans: myCoach == anotherCoach, " + (myCoach == anotherCoach);
