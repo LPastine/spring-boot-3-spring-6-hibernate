@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SportConfig {
     // 2) Define @Bean method to configure the bean
-    @Bean
+    @Bean("swimCoach")
     public Coach swimCoach() {
         return new SwimCoach();
     }
