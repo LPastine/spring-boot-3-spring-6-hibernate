@@ -4,6 +4,7 @@ import com.lpastine.cruddemo.entity.Student;
 
 import java.util.List;
 
+
 public interface StudentDAO {
 
     void save(Student theStudent);
@@ -13,4 +14,7 @@ public interface StudentDAO {
     List<Student> findAll();
 
     List<Student> findByLastName(String theLastName);
+
+    // 1) Add new method to DAO interface
+    void update(Student theStudent);
 }
