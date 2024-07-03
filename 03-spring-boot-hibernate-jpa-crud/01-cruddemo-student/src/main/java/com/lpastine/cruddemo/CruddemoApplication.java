@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
-// 3) Update main app
 @SpringBootApplication
 public class CruddemoApplication {
 
@@ -24,8 +23,19 @@ public class CruddemoApplication {
 //			createStudent(studentDAO);
 //			createMultipleStudents(studentDAO);
 //			readStudent(studentDAO);
-			queryForStudents(studentDAO);
+//			queryForStudents(studentDAO);
+			queryForStudentsByLastName(studentDAO);
 		};
+	}
+
+	private void queryForStudentsByLastName(StudentDAO studentDAO) {
+		// Get a list of students
+		List<Student> theStudents = studentDAO.findByLastName("Duck");
+
+		// Display list of students
+		for (Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
+		}
 	}
 
 	private void queryForStudents(StudentDAO studentDAO) {

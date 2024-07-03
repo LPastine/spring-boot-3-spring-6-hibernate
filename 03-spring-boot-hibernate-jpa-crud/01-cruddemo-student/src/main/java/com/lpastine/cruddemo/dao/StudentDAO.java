@@ -10,6 +10,7 @@ public interface StudentDAO {
 
     Student findById(Integer id);
 
-    // 1) Add new method to DAO interface
     List<Student> findAll();
+
+    List<Student> findByLastName(String theLastName);
 }
