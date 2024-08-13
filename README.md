@@ -1,1 +1,1 @@
-# spring-boot-3-spring-6-hibernate
+# Spring Boot 3, Spring 6, Hibernate
