@@ -1,6 +1,7 @@
 package com.lpastine.aopdemo;
 
 import com.lpastine.aopdemo.dao.AccountDAO;
+import com.lpastine.aopdemo.dao.MembershipDAO;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,19 +19,23 @@ public class AopdemoApplication {
 		because of the Bean annotation.
 	 */
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO) {
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 
 		return runner -> {
 
-			demoTheBeforeAdvice(theAccountDAO);
+			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 
 		};
 	}
 
-	private void demoTheBeforeAdvice(AccountDAO theAccountDAO) {
+	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 
 		// call the business method
 		theAccountDAO.addAccount();
+
+		// call the membership business method
+		theMembershipDAO.addAccount();
+		
 	}
 
 }
