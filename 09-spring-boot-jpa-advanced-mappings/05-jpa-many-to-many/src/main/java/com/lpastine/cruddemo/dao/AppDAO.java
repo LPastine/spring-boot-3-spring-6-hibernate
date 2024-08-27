@@ -3,6 +3,7 @@ package com.lpastine.cruddemo.dao;
 import com.lpastine.cruddemo.entity.Course;
 import com.lpastine.cruddemo.entity.Instructor;
 import com.lpastine.cruddemo.entity.InstructorDetail;
+import com.lpastine.cruddemo.entity.Student;
 
 import java.util.List;
 
@@ -35,4 +36,6 @@ public interface AppDAO {
     Course findCourseAndReviewsByCourseId(int theId);
 
     Course findCourseAndStudentsByCourseId(int theId);
+
+    Student findStudentAndCoursesByStudentId(int theId);
 }

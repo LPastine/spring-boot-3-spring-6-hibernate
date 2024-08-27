@@ -3,6 +3,7 @@ package com.lpastine.cruddemo.dao;
 import com.lpastine.cruddemo.entity.Course;
 import com.lpastine.cruddemo.entity.Instructor;
 import com.lpastine.cruddemo.entity.InstructorDetail;
+import com.lpastine.cruddemo.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
@@ -180,5 +181,24 @@ public class AppDAOImpl implements AppDAO {
         Course course = query.getSingleResult();
 
         return course;
+    }
+
+    @Override
+    public Student findStudentAndCoursesByStudentId(int theId) {
+
+        // create query
+        TypedQuery<Student> query = entityManager.createQuery(
+                "select s from Student s "
+                        + "JOIN FETCH s.courses "
+                        + "where s.id = :data ",
+                Student.class
+        );
+
+        query.setParameter("data", theId);
+
+        // execute query
+        Student student = query.getSingleResult();
+
+        return student;
     }
 }
